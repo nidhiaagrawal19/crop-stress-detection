@@ -31,3 +31,5 @@ field photos. PlantVillage-only models tend to do much worse on real field image
 ## Caveats
 - Softmax confidence is not calibrated. Don't present it as a probability of being right.
 - Evaluate on held-out field photos before showing results to farmers.
+## Team Member Contribution
+- Added AI model files and prediction module.
