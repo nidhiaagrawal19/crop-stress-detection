@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AgriCare — Smart Agriculture Assistant</title>
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<!-- LANDING -->
+<section id="landingPage" class="page landing-page active-page">
+  <nav class="landing-nav">
+    <div class="brand">
+      <div class="brand-icon">🌿</div>
+      <div><h2>AgriCare</h2><span>Smart Agriculture Assistant</span></div>
+    </div>
+    <div class="nav-actions">
+      <select id="landingLanguage" class="language-select">
+        <option value="en">🇬🇧 English</option>
+        <option value="hi">🇮🇳 हिंदी</option>
+        <option value="mr">🇮🇳 मराठी</option>
+      </select>
+      <button class="outline-btn" onclick="showLogin()">Login</button>
+    </div>
+  </nav>
+
+  <div class="hero">
+    <div class="hero-content">
+      <div class="hero-badge">🌱 AI-Powered Farming Intelligence</div>
+      <h1>Smarter Farming.<br><span>Better Decisions.</span></h1>
+      <p>AgriCare combines crop information, soil conditions, weather, location and crop images to help farmers make informed agricultural decisions.</p>
+      <div class="hero-buttons">
+        <button class="primary-btn large" onclick="showLogin()">Get Started →</button>
+        <button class="glass-btn large" onclick="showLogin()">Explore AgriCare</button>
+      </div>
+      <div class="trust-row">
+        <div><strong>AI</strong><span>Smart Analysis</span></div>
+        <div><strong>GPS</strong><span>Location Aware</span></div>
+        <div><strong>24/7</strong><span>Farm Insights</span></div>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="floating-card weather-mini"><span>🌤️</span><div><b>Smart Weather</b><small>Crop-aware insights</small></div></div>
+      <div class="farm-orb"><div class="orb-inner">🌾</div></div>
+      <div class="floating-card ai-mini"><span>🤖</span><div><b>AI Analysis</b><small>Context-aware results</small></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- LOGIN -->
+<section id="loginPage" class="page hidden-page">
+  <div class="login-wrapper">
+    <div class="login-card">
+      <button class="back-btn" onclick="showLanding()">← Back</button>
+      <div class="login-logo">🌿</div>
+      <h1>Welcome to AgriCare</h1>
+      <p>Let's get your farm intelligence started.</p>
+      <form id="loginForm">
+        <label>Farmer Name</label>
+        <div class="input-box"><span>👤</span>
+          <input type="text" id="farmerName" placeholder="Enter your name" required>
+        </div>
+        <label>Phone Number</label>
+        <div class="input-box"><span>📱</span>
+          <input type="tel" id="phoneNumber" placeholder="10-digit mobile number" maxlength="10" pattern="[0-9]{10}" required>
+        </div>
+        <button type="submit" class="primary-btn full">Continue to AgriCare →</button>
+      </form>
+      <div class="login-note">🔒 Your information is stored locally in this prototype.</div>
+    </div>
+  </div>
+</section>
+
+<div id="toast" class="toast"></div>
+<script src="js/auth.js"></script>
+</body>
+</html>
