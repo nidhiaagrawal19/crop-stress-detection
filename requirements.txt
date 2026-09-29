@@ -1,0 +1,5 @@
+fastapi>=0.110
+uvicorn[standard]>=0.29
+python-multipart>=0.0.9   # required for image uploads
+pydantic>=2.6
+# Member 3 (AI/ML) and Member 4 (database/APIs) append their packages below
