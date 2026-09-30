@@ -29,5 +29,9 @@ def current_farmer(
 
 @router.post("/login")
 def login(body: LoginRequest, db: Session = Depends(get_db)):
-    farmer = repository.get_or_create_farmer(db, body.name.strip(), body.phone)
-    return {"token": repository.create_token(db, farmer), "user": farmer.to_dict()}
+ farmer = repository.get_or_create_farmer(
+    db,
+    body.name.strip(),
+    body.phone.strip()
+)
+ return {"token": repository.create_token(db, farmer), "user": farmer.to_dict()}
