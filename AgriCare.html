@@ -1,0 +1,1072 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AgriCare — Smart Agriculture Assistant</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<!-- ================= LANDING PAGE ================= -->
+<section id="landingPage" class="page active-page">
+
+    <nav class="landing-nav">
+        <div class="brand">
+            <div class="brand-icon">🌿</div>
+            <div>
+                <h2>AgriCare</h2>
+                <span>Smart Agriculture Assistant</span>
+            </div>
+        </div>
+
+        <div class="nav-actions">
+            <select id="landingLanguage" class="language-select">
+                <option value="en">🇬🇧 English</option>
+                <option value="hi">🇮🇳 हिंदी</option>
+                <option value="mr">🇮🇳 मराठी</option>
+            </select>
+
+            <button class="outline-btn" onclick="showLogin()">Login</button>
+        </div>
+    </nav>
+
+    <div class="hero">
+
+        <div class="hero-content">
+
+            <div class="hero-badge">
+                🌱 AI-Powered Farming Intelligence
+            </div>
+
+            <h1>
+                Smarter Farming.<br>
+                <span>Better Decisions.</span>
+            </h1>
+
+            <p>
+                AgriCare combines crop information, soil conditions,
+                weather, location and crop images to help farmers make
+                informed agricultural decisions.
+            </p>
+
+            <div class="hero-buttons">
+                <button class="primary-btn large" onclick="showLogin()">
+                    Get Started →
+                </button>
+
+                <button class="glass-btn large" onclick="showLogin()">
+                    Explore AgriCare
+                </button>
+            </div>
+
+            <div class="trust-row">
+                <div>
+                    <strong>AI</strong>
+                    <span>Smart Analysis</span>
+                </div>
+                <div>
+                    <strong>GPS</strong>
+                    <span>Location Aware</span>
+                </div>
+                <div>
+                    <strong>24/7</strong>
+                    <span>Farm Insights</span>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="hero-visual">
+
+            <div class="floating-card weather-mini">
+                <span>🌤️</span>
+                <div>
+                    <b>Smart Weather</b>
+                    <small>Crop-aware insights</small>
+                </div>
+            </div>
+
+            <div class="farm-orb">
+                <div class="orb-inner">
+                    🌾
+                </div>
+            </div>
+
+            <div class="floating-card ai-mini">
+                <span>🤖</span>
+                <div>
+                    <b>AI Analysis</b>
+                    <small>Context-aware results</small>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+<!-- ================= LOGIN ================= -->
+<section id="loginPage" class="page hidden-page">
+
+    <div class="login-wrapper">
+
+        <div class="login-card">
+
+            <button class="back-btn" onclick="showLanding()">← Back</button>
+
+            <div class="login-logo">🌿</div>
+
+            <h1>Welcome to AgriCare</h1>
+            <p>Let's get your farm intelligence started.</p>
+
+            <form id="loginForm">
+
+                <label>Farmer Name</label>
+                <div class="input-box">
+                    <span>👤</span>
+                    <input
+                        type="text"
+                        id="farmerName"
+                        placeholder="Enter your name"
+                        required
+                    >
+                </div>
+
+                <label>Phone Number</label>
+                <div class="input-box">
+                    <span>📱</span>
+                    <input
+                        type="tel"
+                        id="phoneNumber"
+                        placeholder="10-digit mobile number"
+                        maxlength="10"
+                        pattern="[0-9]{10}"
+                        required
+                    >
+                </div>
+
+                <button type="submit" class="primary-btn full">
+                    Continue to AgriCare →
+                </button>
+
+            </form>
+
+            <div class="login-note">
+                🔒 Your information is stored locally in this prototype.
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+
+<!-- ================= APP ================= -->
+<section id="appPage" class="app-page hidden-page">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+
+        <div class="sidebar-brand">
+            <div class="brand-icon">🌿</div>
+            <div>
+                <b>AgriCare</b>
+                <small>Smart Farming</small>
+            </div>
+        </div>
+
+        <div class="sidebar-user">
+            <div class="avatar" id="sideAvatar">F</div>
+            <div>
+                <b id="sideUserName">Farmer</b>
+                <small id="sideUserLocation">Location pending</small>
+            </div>
+        </div>
+
+        <nav class="side-nav">
+
+            <button class="nav-item active" data-section="dashboard">
+                <span>⌂</span> Dashboard
+            </button>
+
+            <button class="nav-item" data-section="details">
+                <span>👨‍🌾</span> Farm Details
+            </button>
+
+            <button class="nav-item" data-section="seeds">
+                <span>🌱</span> Seeds
+            </button>
+
+            <button class="nav-item" data-section="pesticides">
+                <span>🧪</span> Pesticides
+            </button>
+
+            <button class="nav-item" data-section="analysis">
+                <span>📷</span> Crop Analysis
+            </button>
+
+            <button class="nav-item" data-section="analytics">
+                <span>📊</span> Analytics
+            </button>
+
+            <button class="nav-item" data-section="history">
+                <span>📜</span> History
+            </button>
+
+            <button class="nav-item" data-section="notifications">
+                <span>🔔</span> Notifications
+                <i id="notificationCount">3</i>
+            </button>
+
+            <button class="nav-item" data-section="profile">
+                <span>👤</span> Profile
+            </button>
+
+        </nav>
+
+        <div class="sidebar-bottom">
+
+            <select id="appLanguage" class="language-select dark-select">
+                <option value="en">🇬🇧 English</option>
+                <option value="hi">🇮🇳 हिंदी</option>
+                <option value="mr">🇮🇳 मराठी</option>
+            </select>
+
+            <button class="logout-btn" onclick="logout()">
+                ↪ Logout
+            </button>
+
+        </div>
+
+    </aside>
+
+
+    <!-- MAIN -->
+    <main class="main-content">
+
+        <header class="topbar">
+
+            <div class="mobile-brand">
+                🌿 <b>AgriCare</b>
+            </div>
+
+            <div class="topbar-location">
+                <span>📍</span>
+                <div>
+                    <small>Current Location</small>
+                    <b id="topLocation">Detecting...</b>
+                </div>
+            </div>
+
+            <div class="top-actions">
+
+                <button class="icon-btn" onclick="openNotifications()">
+                    🔔
+                    <i>3</i>
+                </button>
+
+                <div class="top-avatar" id="topAvatar">F</div>
+
+            </div>
+
+        </header>
+
+
+        <!-- ================= DASHBOARD ================= -->
+        <section id="dashboard" class="content-section active-section">
+
+            <div class="welcome-row">
+
+                <div>
+                    <p class="eyebrow">SMART FARMING DASHBOARD</p>
+                    <h1>Hello, <span id="welcomeName">Farmer</span> 👋</h1>
+                    <p class="muted">
+                        Here's your farm intelligence overview for today.
+                    </p>
+                </div>
+
+                <button class="primary-btn" onclick="navigateTo('details')">
+                    + Update Farm Details
+                </button>
+
+            </div>
+
+
+            <!-- WEATHER -->
+            <div class="weather-banner">
+
+                <div class="weather-main">
+
+                    <div class="weather-icon" id="weatherIcon">☀️</div>
+
+                    <div>
+                        <small>LIVE WEATHER</small>
+                        <h2 id="temperature">--°C</h2>
+                        <p id="weatherCondition">Getting weather...</p>
+                    </div>
+
+                </div>
+
+                <div class="weather-details">
+
+                    <div>
+                        <span>💧</span>
+                        <b id="humidity">--%</b>
+                        <small>Humidity</small>
+                    </div>
+
+                    <div>
+                        <span>🌧️</span>
+                        <b id="rainfall">--%</b>
+                        <small>Rain Chance</small>
+                    </div>
+
+                    <div>
+                        <span>💨</span>
+                        <b id="wind">-- km/h</b>
+                        <small>Wind</small>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- ANALYTICS CARDS -->
+            <div class="stats-grid">
+
+                <div class="stat-card">
+                    <div class="stat-icon green">🌱</div>
+                    <small>Current Crop</small>
+                    <h2 id="dashCrop">Not Added</h2>
+                    <span>Farm information</span>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon blue">📐</div>
+                    <small>Crop Area</small>
+                    <h2><span id="dashArea">0</span> acres</h2>
+                    <span>Total cultivated area</span>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon orange">🧪</div>
+                    <small>Soil pH</small>
+                    <h2 id="dashPH">--</h2>
+                    <span id="phStatus">Not provided</span>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon purple">💧</div>
+                    <small>Irrigation</small>
+                    <h2 id="dashIrrigation">--</h2>
+                    <span>Water management</span>
+                </div>
+
+            </div>
+
+
+            <!-- AI OVERVIEW -->
+            <div class="dashboard-grid">
+
+                <div class="glass-card ai-overview">
+
+                    <div class="card-heading">
+                        <div>
+                            <p class="eyebrow">AI FARM INTELLIGENCE</p>
+                            <h2>Farm Analysis</h2>
+                        </div>
+
+                        <span class="status-pill" id="farmRisk">
+                            Waiting for details
+                        </span>
+                    </div>
+
+                    <div id="aiOverviewContent" class="empty-state">
+                        <div>🤖</div>
+                        <h3>Complete your farm details</h3>
+                        <p>
+                            Add your soil, water, crop and area information
+                            to generate personalized AI analysis.
+                        </p>
+                        <button class="primary-btn" onclick="navigateTo('details')">
+                            Add Details
+                        </button>
+                    </div>
+
+                </div>
+
+
+                <div class="glass-card">
+
+                    <div class="card-heading">
+                        <div>
+                            <p class="eyebrow">SMART ACTIONS</p>
+                            <h2>AI Suggestions</h2>
+                        </div>
+                    </div>
+
+                    <div id="quickSuggestions" class="suggestion-list">
+
+                        <div class="suggestion">
+                            <span>📍</span>
+                            <div>
+                                <b>Enable location</b>
+                                <small>Location helps personalize your analysis.</small>
+                            </div>
+                        </div>
+
+                        <div class="suggestion">
+                            <span>🌱</span>
+                            <div>
+                                <b>Add crop details</b>
+                                <small>Get crop-specific recommendations.</small>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- QUICK ACCESS -->
+            <div class="section-heading">
+                <div>
+                    <p class="eyebrow">AGRICULTURE TOOLS</p>
+                    <h2>Quick Access</h2>
+                </div>
+            </div>
+
+            <div class="quick-grid">
+
+                <button class="quick-card" onclick="navigateTo('analysis')">
+                    <span>📷</span>
+                    <b>Crop Analysis</b>
+                    <small>Analyze crop condition</small>
+                </button>
+
+                <button class="quick-card" onclick="navigateTo('seeds')">
+                    <span>🌱</span>
+                    <b>Seed Advisor</b>
+                    <small>Find suitable seeds</small>
+                </button>
+
+                <button class="quick-card" onclick="navigateTo('pesticides')">
+                    <span>🧪</span>
+                    <b>Pesticide Guide</b>
+                    <small>View crop-care options</small>
+                </button>
+
+                <button class="quick-card" onclick="navigateTo('analytics')">
+                    <span>📊</span>
+                    <b>Analytics</b>
+                    <small>View farm history</small>
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= DETAILS ================= -->
+        <section id="details" class="content-section">
+
+            <div class="page-title">
+                <p class="eyebrow">FARM PROFILE</p>
+                <h1>Farmer & Crop Details</h1>
+                <p>Enter your farm information to personalize AgriCare.</p>
+            </div>
+
+            <div class="location-card">
+
+                <div class="location-symbol">📍</div>
+
+                <div class="location-info">
+                    <small>GPS DETECTED LOCATION</small>
+                    <h3 id="locationState">Detecting location...</h3>
+                    <p id="locationCoordinates">Waiting for GPS permission</p>
+                </div>
+
+                <button class="secondary-btn" onclick="requestLocation()">
+                    Refresh Location
+                </button>
+
+            </div>
+
+
+            <form id="farmForm" class="form-card">
+
+                <div class="form-section-title">
+                    <span>🌍</span>
+                    <div>
+                        <h3>Soil Information</h3>
+                        <p>Tell us about your field soil.</p>
+                    </div>
+                </div>
+
+                <div class="form-grid">
+
+                    <div class="field">
+                        <label>Soil pH *</label>
+                        <input
+                            type="number"
+                            id="soilPH"
+                            min="0"
+                            max="14"
+                            step="0.1"
+                            placeholder="e.g. 6.5"
+                            required
+                        >
+                    </div>
+
+                    <div class="field">
+                        <label>Soil Colour *</label>
+                        <select id="soilColour" required>
+                            <option value="">Select soil colour</option>
+                            <option>Black</option>
+                            <option>Red</option>
+                            <option>Brown</option>
+                            <option>Yellow</option>
+                            <option>Alluvial / Light Brown</option>
+                            <option>Sandy</option>
+                            <option>Other</option>
+                        </select>
+                    </div>
+
+                </div>
+
+
+                <div class="form-section-title">
+                    <span>💧</span>
+                    <div>
+                        <h3>Water & Irrigation</h3>
+                        <p>Provide your primary water information.</p>
+                    </div>
+                </div>
+
+                <div class="form-grid">
+
+                    <div class="field">
+                        <label>Irrigation Type *</label>
+                        <select id="irrigation" required>
+                            <option value="">Select irrigation</option>
+                            <option>Drip Irrigation</option>
+                            <option>Sprinkler</option>
+                            <option>Flood Irrigation</option>
+                            <option>Furrow Irrigation</option>
+                            <option>Rainfed</option>
+                            <option>Other</option>
+                        </select>
+                    </div>
+
+                    <div class="field">
+                        <label>Main Water Source *</label>
+                        <select id="waterSource" required>
+                            <option value="">Select water source</option>
+                            <option>Borewell</option>
+                            <option>Well</option>
+                            <option>Canal</option>
+                            <option>River</option>
+                            <option>Rainwater</option>
+                            <option>Reservoir</option>
+                            <option>Other</option>
+                        </select>
+                    </div>
+
+                </div>
+
+
+                <div class="form-section-title">
+                    <span>🌾</span>
+                    <div>
+                        <h3>Crop Information</h3>
+                        <p>Enter your current crop and area.</p>
+                    </div>
+                </div>
+
+                <div class="form-grid">
+
+                    <div class="field">
+                        <label>Current Crop *</label>
+                        <select id="crop" required>
+                            <option value="">Select crop</option>
+                            <option>Rice</option>
+                            <option>Wheat</option>
+                            <option>Maize</option>
+                            <option>Cotton</option>
+                            <option>Soybean</option>
+                            <option>Tomato</option>
+                            <option>Potato</option>
+                            <option>Onion</option>
+                            <option>Sugarcane</option>
+                            <option>Groundnut</option>
+                            <option>Chilli</option>
+                            <option>Other</option>
+                        </select>
+                    </div>
+
+                    <div class="field">
+                        <label>Crop Yield Area (acres) *</label>
+                        <input
+                            type="number"
+                            id="yieldArea"
+                            min="0"
+                            step="0.1"
+                            placeholder="e.g. 2.5"
+                            required
+                        >
+                    </div>
+
+                    <div class="field">
+                        <label>Total Crop Area (acres) *</label>
+                        <input
+                            type="number"
+                            id="totalArea"
+                            min="0"
+                            step="0.1"
+                            placeholder="e.g. 4"
+                            required
+                        >
+                    </div>
+
+                </div>
+
+
+                <div class="form-footer">
+                    <span>🔒 Your details stay in this browser.</span>
+                    <button type="submit" class="primary-btn">
+                        Generate AI Analysis →
+                    </button>
+                </div>
+
+            </form>
+
+        </section>
+
+
+        <!-- ================= SEEDS ================= -->
+        <section id="seeds" class="content-section">
+
+            <div class="page-title">
+                <p class="eyebrow">SMART SEED ADVISOR</p>
+                <h1>Seed Recommendations</h1>
+                <p>Explore crop-specific seed options and company information.</p>
+            </div>
+
+            <div id="seedContext" class="context-banner">
+                🌱 Add your crop details to personalize seed recommendations.
+            </div>
+
+            <div id="seedGrid" class="product-grid"></div>
+
+        </section>
+
+
+        <!-- ================= PESTICIDES ================= -->
+        <section id="pesticides" class="content-section">
+
+            <div class="page-title">
+                <p class="eyebrow">CROP CARE</p>
+                <h1>Pesticide Guide</h1>
+                <p>Record usage and explore crop-care options.</p>
+            </div>
+
+            <div class="two-column">
+
+                <div class="form-card">
+
+                    <div class="form-section-title">
+                        <span>🧪</span>
+                        <div>
+                            <h3>Pesticide Usage</h3>
+                            <p>Record what you have used on your crop.</p>
+                        </div>
+                    </div>
+
+                    <div class="field">
+                        <label>Pesticide Used</label>
+                        <input
+                            type="text"
+                            id="usedPesticide"
+                            placeholder="Enter pesticide name"
+                        >
+                    </div>
+
+                    <div class="field">
+                        <label>Quantity Used</label>
+                        <input
+                            type="number"
+                            id="pesticideQuantity"
+                            min="0"
+                            step="0.1"
+                            placeholder="Enter quantity"
+                        >
+                    </div>
+
+                    <div class="field">
+                        <label>Unit</label>
+                        <select id="pesticideUnit">
+                            <option>ml</option>
+                            <option>L</option>
+                            <option>g</option>
+                            <option>kg</option>
+                        </select>
+                    </div>
+
+                    <button class="primary-btn full" onclick="savePesticideUsage()">
+                        Save Usage
+                    </button>
+
+                    <div id="pesticideSaved" class="success-message hidden">
+                        ✓ Pesticide usage saved successfully.
+                    </div>
+
+                </div>
+
+                <div class="form-card">
+
+                    <div class="form-section-title">
+                        <span>🤖</span>
+                        <div>
+                            <h3>Smart Recommendation</h3>
+                            <p>Context-based crop-care information.</p>
+                        </div>
+                    </div>
+
+                    <div id="pesticideRecommendation">
+                        Add your crop details to generate a recommendation.
+                    </div>
+
+                    <div class="warning-box">
+                        ⚠️ Always follow the pesticide product label,
+                        legally approved use instructions and local agricultural
+                        expert guidance. Do not rely on this prototype for exact
+                        dosage decisions.
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= ANALYSIS ================= -->
+        <section id="analysis" class="content-section">
+
+            <div class="page-title">
+                <p class="eyebrow">AI CROP INTELLIGENCE</p>
+                <h1>Crop Disease Analysis</h1>
+                <p>
+                    Combine crop image, weather and field context for a
+                    more informed assessment.
+                </p>
+            </div>
+
+
+            <div class="analysis-upload-card">
+
+                <div class="upload-icon">📷</div>
+
+                <h2>Upload Crop Image</h2>
+
+                <p>
+                    Capture a fresh image or choose an existing crop photo.
+                    Clear, well-lit images provide better analysis.
+                </p>
+
+                <div class="upload-buttons">
+
+                    <label class="upload-btn primary-upload">
+                        📸 Take Photo
+                        <input
+                            type="file"
+                            id="cameraInput"
+                            accept="image/*"
+                            capture="environment"
+                            hidden
+                        >
+                    </label>
+
+                    <label class="upload-btn secondary-upload">
+                        🖼️ Choose from Gallery
+                        <input
+                            type="file"
+                            id="galleryInput"
+                            accept="image/*"
+                            hidden
+                        >
+                    </label>
+
+                </div>
+
+                <div class="upload-note">
+                    Supported image types: JPG, JPEG, PNG
+                </div>
+
+            </div>
+
+
+            <div id="imagePreviewArea" class="image-preview-area hidden">
+
+                <div class="preview-image-wrap">
+                    <img id="cropPreview" alt="Crop preview">
+                </div>
+
+                <div class="preview-info">
+
+                    <span class="status-pill">IMAGE READY</span>
+
+                    <h3>Crop Image Selected</h3>
+
+                    <p id="imageFileName">Image</p>
+
+                    <div class="preview-actions">
+
+                        <button class="secondary-btn" onclick="clearCropImage()">
+                            Choose Again
+                        </button>
+
+                        <button class="primary-btn" onclick="analyzeCrop()">
+                            🤖 Analyze Crop
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div id="analysisLoading" class="analysis-loading hidden">
+
+                <div class="loader"></div>
+
+                <h3>Analyzing crop...</h3>
+
+                <p>
+                    Combining image quality, crop details,
+                    weather and field context.
+                </p>
+
+            </div>
+
+
+            <div id="analysisResult" class="analysis-result hidden"></div>
+
+        </section>
+
+
+        <!-- ================= ANALYTICS ================= -->
+        <section id="analytics" class="content-section">
+
+            <div class="page-title">
+                <p class="eyebrow">FARM INTELLIGENCE</p>
+                <h1>Analytics</h1>
+                <p>Understand your crop-area history and farm indicators.</p>
+            </div>
+
+            <div class="analytics-grid">
+
+                <div class="analytics-card">
+                    <small>Total Crop Area</small>
+                    <h2 id="analyticsArea">0 acres</h2>
+                    <span>Current record</span>
+                </div>
+
+                <div class="analytics-card">
+                    <small>Crop Analyses</small>
+                    <h2 id="analyticsAnalyses">0</h2>
+                    <span>Saved assessments</span>
+                </div>
+
+                <div class="analytics-card">
+                    <small>Farm Alerts</small>
+                    <h2 id="analyticsAlerts">3</h2>
+                    <span>Needs attention</span>
+                </div>
+
+                <div class="analytics-card">
+                    <small>Input Cost</small>
+                    <h2 id="analyticsCost">₹0</h2>
+                    <span>Recorded usage</span>
+                </div>
+
+            </div>
+
+
+            <div class="analytics-two">
+
+                <div class="glass-card">
+
+                    <div class="card-heading">
+                        <div>
+                            <p class="eyebrow">CROP DISTRIBUTION</p>
+                            <h2>Crop Area History</h2>
+                        </div>
+                    </div>
+
+                    <div class="pie-wrap">
+
+                        <div id="cropPie" class="pie-chart"></div>
+
+                        <div id="pieLegend" class="pie-legend"></div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="glass-card">
+
+                    <div class="card-heading">
+                        <div>
+                            <p class="eyebrow">SMART COST ANALYSIS</p>
+                            <h2>Input Costs</h2>
+                        </div>
+                    </div>
+
+                    <div class="cost-row">
+                        <span>🌱 Seeds</span>
+                        <b>₹<span id="seedCost">0</span></b>
+                    </div>
+
+                    <div class="cost-row">
+                        <span>🧪 Pesticides</span>
+                        <b>₹<span id="pestCost">0</span></b>
+                    </div>
+
+                    <div class="cost-row">
+                        <span>💧 Irrigation</span>
+                        <b>₹<span id="irrigationCost">0</span></b>
+                    </div>
+
+                    <div class="cost-total">
+                        <span>Total Recorded</span>
+                        <b>₹<span id="totalCost">0</span></b>
+                    </div>
+
+                    <div class="suggestion-box">
+                        💡 <b>Smart insight:</b>
+                        Keep recording your input costs to identify
+                        major expense categories.
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= HISTORY ================= -->
+        <section id="history" class="content-section">
+
+            <div class="page-title">
+                <p class="eyebrow">FARM RECORDS</p>
+                <h1>Farmer History</h1>
+                <p>Your saved crop and analysis records.</p>
+            </div>
+
+            <div id="historyList" class="history-list"></div>
+
+        </section>
+
+
+        <!-- ================= NOTIFICATIONS ================= -->
+        <section id="notifications" class="content-section">
+
+            <div class="page-title">
+                <p class="eyebrow">ALERT CENTER</p>
+                <h1>Notifications</h1>
+                <p>Important farming updates and reminders.</p>
+            </div>
+
+            <div class="notification-list">
+
+                <div class="notification-card unread">
+                    <span>🌦️</span>
+                    <div>
+                        <b>Weather-aware farming</b>
+                        <p>Weather conditions are included in crop analysis.</p>
+                        <small>Today</small>
+                    </div>
+                </div>
+
+                <div class="notification-card">
+                    <span>📷</span>
+                    <div>
+                        <b>Image quality matters</b>
+                        <p>Use clear and well-lit crop images for better assessment.</p>
+                        <small>Today</small>
+                    </div>
+                </div>
+
+                <div class="notification-card">
+                    <span>👨‍🌾</span>
+                    <div>
+                        <b>Expert review</b>
+                        <p>Ambiguous or low-confidence cases should be checked by an agricultural expert.</p>
+                        <small>Today</small>
+                    </div>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= PROFILE ================= -->
+        <section id="profile" class="content-section">
+
+            <div class="page-title">
+                <p class="eyebrow">FARMER ACCOUNT</p>
+                <h1>Profile</h1>
+            </div>
+
+            <div class="profile-card">
+
+                <div class="large-avatar" id="profileAvatar">F</div>
+
+                <h2 id="profileName">Farmer</h2>
+                <p id="profilePhone">+91 XXXXX XXXXX</p>
+
+                <div class="profile-details">
+
+                    <div>
+                        <small>State</small>
+                        <b id="profileState">Detecting...</b>
+                    </div>
+
+                    <div>
+                        <small>Region</small>
+                        <b id="profileRegion">Detecting...</b>
+                    </div>
+
+                    <div>
+                        <small>Language</small>
+                        <b id="profileLanguage">English</b>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</section>
+
+
+<!-- TOAST -->
+<div id="toast" class="toast"></div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
