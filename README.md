@@ -33,3 +33,4 @@ field photos. PlantVillage-only models tend to do much worse on real field image
 - Evaluate on held-out field photos before showing results to farmers.
 ## Team Member Contribution
 - Added AI model files and prediction module.
+Updated by Radhika Badarkhe
